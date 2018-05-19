@@ -8,28 +8,7 @@ export class Patient {
         location?: string;
         description?: string;
         time?: Date;
-        mechanismOfInjury?: string[];
-        bodyPartsAffected?: string;
-        symptomDescription?: string;
-        sensationMovesOrRadiates?: string;
-        howLongSymptomsLasted?: string;
-        treatmentSoFar?: string;
-        photoUrls?: string[];
-        areEyeOpen?: boolean;
-        reactToVoice?: boolean;
-        reactToPain?: boolean;
-        bleeding?: boolean;
-        havePulse?: boolean;
-        language?: string;
-        preExistingIllnesses?: string;
-        medications?: string;
-        allergies?: {
-            food?: string;
-            antibiotics?: string;
-            environmental?: string;
-        };
-        hospitalizedRecently?: boolean;
-        hadSurgery?: boolean;
+        typeOfEmergency?:string;
     };
     ems?: {
         tech1Name?: string;
