@@ -4,7 +4,7 @@ import { WitnessComponent } from './witness/witness.component';
 import { DoctorComponent } from './doctor/doctor.component';
 
 export const AppRoutes: Routes = [
-    { path: '', redirectTo: 'ems', pathMatch:'full' },
+    { path: '', redirectTo: 'witness', pathMatch:'full' },
     { path: 'ems', component: EmsComponent },
     { path: 'witness', component: WitnessComponent },
     { path: 'doctor', component: DoctorComponent }

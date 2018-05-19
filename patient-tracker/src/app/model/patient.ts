@@ -11,6 +11,8 @@ export class Patient {
         typeOfEmergency?:string;
     };
     ems?: {
+        firstname: string;
+        lastname: string;
         tech1Name?: string;
         tech2Name?: string;
         shiftDate?: Date;

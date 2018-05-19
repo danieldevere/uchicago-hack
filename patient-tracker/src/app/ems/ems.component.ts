@@ -16,7 +16,9 @@ export class EmsComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private patientService: PatientService) {
     this.emsForm = new FormGroup({
-      tech1Name: new FormControl(null, [Validators.required]),
+      firstname: new FormControl(null),
+      lastname: new FormControl(null),
+      tech1Name: new FormControl(null),
       tech2Name: new FormControl(null),
       chiefComplaint: new FormControl(null, [Validators.required]),
       medications: new FormControl(null, [Validators.required]),

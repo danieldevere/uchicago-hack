@@ -1,11 +1,19 @@
 <mat-tab-group>
-    <mat-tab label="Tab 1">
+    <mat-tab label="EMS Report">
         <mat-card>
             <mat-card-title>EMS Questions</mat-card-title>
             <mat-card-content>
                 <form [formGroup]="emsForm">
                     <mat-form-field>
-                        <input matInput placeholder="Tech Name" formControlName="tech1Name" required>
+                            <input matInput placeholder="Patient First Name" formControlName="firstname">
+                        </mat-form-field>
+                        <br>
+                        <mat-form-field>
+                            <input matInput placeholder="Patient Last Name" formControlName="lastname">
+                        </mat-form-field>
+                        <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Tech Name 1" formControlName="tech1Name">
                     </mat-form-field>
                     <br>
                     <mat-form-field>
@@ -18,60 +26,67 @@
                     </mat-form-field> -->
                     <br>
                     <mat-form-field>
-                        <input matInput placeholder="Chief Complaint" formControlName="chiefComplaint" required>
+                        <input matInput placeholder="Chief Complaint" formControlName="chiefComplaint">
                     </mat-form-field>
                     <br>
                     <mat-form-field>
-                        <input matInput placeholder="Medications" formControlName="medications" required>
+                        <input matInput placeholder="Medications" formControlName="medications">
                     </mat-form-field>
                     <br>
                     <mat-form-field>
-                        <input matInput placeholder="Past History" formControlName="pastHistory" required>
+                        <input matInput placeholder="Past History" formControlName="pastHistory">
                     </mat-form-field>
                     <br>
                     <mat-form-field>
-                        <input matInput placeholder="Known Allergies" formControlName="allergies" required>
+                        <input matInput placeholder="Known Allergies" formControlName="allergies">
                     </mat-form-field>
                 </form>
                 <button mat-button (click)="submit()">Submit Patient Info</button>
             </mat-card-content>
         </mat-card>
     </mat-tab>
-    <mat-tab label="Tab 2">
+    <mat-tab label="Witness Report">
         <mat-card>
             <mat-card-title>Witness Data</mat-card-title>
             <mat-card-content>
-                <table mat-table #table [dataSource]="dataSource">
-                    <!--- Note that these columns can be defined in any order.
-                            The actual rendered columns are set as a property on the row definition" -->
-                
-                    <!-- Position Column -->
-                    <ng-container matColumnDef="position">
-                        <th mat-header-cell *matHeaderCellDef> No. </th>
-                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-                    </ng-container>
-                
-                    <!-- Name Column -->
-                    <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef> Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-                    </ng-container>
-                
-                    <!-- Weight Column -->
-                    <ng-container matColumnDef="weight">
-                        <th mat-header-cell *matHeaderCellDef> Weight </th>
-                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-                    </ng-container>
-                
-                    <!-- Symbol Column -->
-                    <ng-container matColumnDef="symbol">
-                        <th mat-header-cell *matHeaderCellDef> Symbol </th>
-                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-                    </ng-container>
-                
-                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                    </table>
+                    <table class="mat-table">
+                            <thead>
+                              <tr class="mat-header-row">
+                                <th class="mat-header-cell"> Patient Attribute </th>
+                                <th class="mat-header-cell"> Current Status </th>
+                              </tr>
+                              </thead>
+                            <tbody>
+                              <tr class="mat-row">
+                                <td class="mat-cell"> First Name </td>
+                                <td class="mat-cell"> {{dataSource.firstname}} </td>
+                              </tr>
+                              <tr class="mat-row">
+                                  <td class="mat-cell"> Last Name </td>
+                                  <td class="mat-cell"> {{dataSource.lastname}} </td> 
+                              </tr>
+                              <tr class="mat-row">
+                                    <td class="mat-cell"> Age </td>
+                                    <td class="mat-cell"> {{dataSource.age}} </td> 
+                                </tr>
+                                <tr class="mat-row">
+                                        <td class="mat-cell"> Sex </td>
+                                        <td class="mat-cell"> {{dataSource.sex}} </td> 
+                                </tr>
+                                <tr class="mat-row">
+                                        <td class="mat-cell">Location</td>
+                                        <td class="mat-cell">{{dataSource.location}}</td> 
+                                </tr>
+                                <tr class="mat-row">
+                                        <td class="mat-cell">Time</td>
+                                        <td class="mat-cell">{{dataSource.time}}</td> 
+                                </tr>
+                                <tr class="mat-row">
+                                        <td class="mat-cell">Type of Emergency</td>
+                                        <td class="mat-cell">{{dataSource.typeOfEmergency}}</td> 
+                                </tr>
+                            </tbody>
+                        </table>
             </mat-card-content>
         </mat-card>
     </mat-tab>
