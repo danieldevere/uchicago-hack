@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatTabsModule} from '@angular/material/tabs';
 import {
     MatButtonModule,
     MatCardModule,
@@ -55,7 +56,7 @@ const MATERIALCOMPONENTS = [
 ];
 
 @NgModule({
-    imports: [MATERIALCOMPONENTS, FormsModule, ReactiveFormsModule],
-    exports: [MATERIALCOMPONENTS, FormsModule, ReactiveFormsModule]
+    imports: [MATERIALCOMPONENTS, FormsModule, ReactiveFormsModule, MatTabsModule],
+    exports: [MATERIALCOMPONENTS, FormsModule, ReactiveFormsModule, MatTabsModule]
 })
 export class SharedModule { }

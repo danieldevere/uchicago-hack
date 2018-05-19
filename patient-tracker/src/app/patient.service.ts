@@ -18,7 +18,7 @@ export class PatientService {
         age: 25
       }
     }
-  ]
+  ];
 
   private patientUrl = 'http://334d2fc0.ngrok.io';
 
