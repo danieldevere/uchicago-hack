@@ -15,7 +15,7 @@ export interface Patient {
         howLongSymptomsLasted?: string;
         treatmentSoFar?: string;
         photoUrls?: string[];
-        areEyeOpen?: boolean;
+        areEyesOpen?: boolean;
         reactToVoice?: boolean;
         reactToPain?: boolean;
         bleeding?: boolean;
@@ -41,7 +41,8 @@ export interface Patient {
         primaryTrauma?: string[];
         secondaryTrauma?: string[];
         mechanismOfInjury?: string[];
-        medication?: string;
+        medications?: string;
+        pastHistory?: string;
         allergies?: string;
         bp?: [
             {
@@ -58,20 +59,67 @@ export interface Patient {
         ];
         respiratory?: [
             {
-                breathsPerMinute?:number;
+                breathsPerMinute?: number;
                 time: Date;
                 o2Saturation: number;
             }
         ];
+        locAVPU: string;
         glasgowComaScale?: {
-            eyesOpen: 
-        }
+            eyesOpen: number;
+            bestVerbal: number;
+            bestMotor: number;
+        };
+        alsAirway: [
+            {
+                attempts: number;
+                success: string;
+                tubeSize: string;
+                other: string;
+            }
+        ];
+        alsIVIOAccess: {
+            [
+                {
+                    attempts: number;
+                    success: string;
+                    site: string;
+                    gauge: number;
+                    other: string;
+                }
+            ]
+            glucometerCheck: string;
+        };
+        medications: [
+            {
+                drug: string;
+                dose: string;
+                route: string;
+                other: string;
+            }
+        ];
+        treatmentNarrative: string;
     }
-    
-        
+
+
 }
 
-export const EyeOpen = [
+export const AVPU = [
+    {
+        text: "Alert"
+    },
+    {
+        text: "Verbal"
+    },
+    {
+        text: "Painful"
+    },
+    {
+        text: "Unresponsive"
+    }
+]
+
+export const EyesOpen = [
     {
         number: 4,
         text: "Spontaneous - 4"
@@ -100,11 +148,47 @@ export const BestVerbal = [
         text: "Confused - 4"
     },
     {
-        
+        number: 3,
+        text: "Inappropriate - 3"
+    },
+    {
+        number: 2,
+        text: "Garbled - 2"
+    },
+    {
+        number: 1,
+        text: "None - 1"
     }
 ]
 
-export const FieldImpressions = [
+export const BestMotor = [
+    {
+        number: 6,
+        text: "Obeys commands - 6"
+    },
+    {
+        number: 5,
+        text: "Pain/Local - 5"
+    },
+    {
+        number: 4,
+        text: "Pain/Withdrawal - 4"
+    },
+    {
+        number: 3,
+        text: "Pain/Flexion - 3"
+    },
+    {
+        number: 2,
+        text: "Pain/Extension - 2"
+    },
+    {
+        number: 1,
+        text: "None - 1"
+    }
+]
+
+export const MedicalFieldImpression = [
     "Abdominal/GI",
     "Respiratory",
     "Cardiac",
@@ -123,7 +207,7 @@ export const FieldImpressions = [
     "Other Neuro"
 ];
 
-export const Trauma = [
+export const TraumaFieldImpression = [
     "Abdomen",
     "Chest",
     "Extremities",
