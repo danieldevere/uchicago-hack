@@ -30,6 +30,8 @@ export class Patient {
         };
         hospitalizedRecently?: boolean;
         hadSurgery?: boolean;
+        witnessName: string;
+        witnessNumber: string;
     };
     ems?: {
         tech1Name?: string;
