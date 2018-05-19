@@ -46,9 +46,9 @@ export interface Patient {
         allergies?: string;
         bp?: [
             {
-                systolic: number;
-                diastolic: number;
-                time: Date;
+                systolic: number,
+                diastolic: number,
+                time: Date
             }
         ];
         pulse?: [
@@ -64,13 +64,13 @@ export interface Patient {
                 o2Saturation: number;
             }
         ];
-        locAVPU: string;
+        locAVPU?: string;
         glasgowComaScale?: {
             eyesOpen: number;
             bestVerbal: number;
             bestMotor: number;
         };
-        alsAirway: [
+        alsAirway?: [
             {
                 attempts: number;
                 success: string;
@@ -78,19 +78,17 @@ export interface Patient {
                 other: string;
             }
         ];
-        alsIVIOAccess: {
-            [
-                {
-                    attempts: number;
-                    success: string;
-                    site: string;
-                    gauge: number;
-                    other: string;
-                }
-            ]
-            glucometerCheck: string;
-        };
-        medications: [
+        alsIVIOAccess?: [
+            {
+                attempts: number;
+                success: string;
+                site: string;
+                gauge: number;
+                other: string;
+                glucometerCheck: string;
+            }
+        ];
+        alsMedications?: [
             {
                 drug: string;
                 dose: string;
@@ -98,7 +96,7 @@ export interface Patient {
                 other: string;
             }
         ];
-        treatmentNarrative: string;
+        treatmentNarrative?: string;
     }
 
 
