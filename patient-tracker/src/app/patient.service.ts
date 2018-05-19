@@ -20,14 +20,18 @@ export class PatientService {
     }
   ];
 
-  private patientUrl = '';
+  private patientUrl = 'http://334d2fc0.ngrok.io';
 
   getAllPatients(): Observable<Patient[]> {
-    return of(this.PATIENTS);
+    return this.httpClient.get<Patient[]>(this.patientUrl + '/patients');
   }
 
-  updatePatient(id: string, patient: Patient): Patient {
-    return patient;
+  updatePatient(id: string, patient: Patient): Observable<Patient> {
+    return this.httpClient.put<Patient>(this.patientUrl + '/patient/' + id , patient);
+  }
+
+  createPatient(patient: Patient): Observable<string> {
+    return this.httpClient.post<string>(this.patientUrl + '/patient', patient);
   }
 
   createPatient(patient: Patient): Observable<string> {

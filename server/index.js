@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var Twilio = require('twilio');
 var multer = require('multer');
 var uuid = require('uuid/v1');
+var cors = require('cors');
 
 var storage = multer.diskStorage({
     destination: function(req,file,cb) {
@@ -23,6 +24,7 @@ var mongoose = require('mongoose');
 var mongoDB = 'mongodb://127.0.0.1/patient_tracker';
 
 app.use(bodyParser.json());
+app.use(cors());
 
 mongoose.connect(mongoDB);
 
@@ -95,13 +97,53 @@ app.listen(3000, function() {
 });
 
 var patientSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
-    age: Number,
-    images: [{
-        filename:String,
-        date: Date
-    }]
+    id: String,
+    witness: {
+        firstname: String,
+        lastname: String,
+        age: Number,
+        sex: String,
+        location: String,
+        description: String,
+        time: Date,
+        typeOfEmergency:String,
+    },
+    ems: {
+        tech1Name: String,
+        tech2Name: String,
+        shiftDate: Date,
+        chiefComplaint: String,
+        primaryFieldImpressions: [String],
+        secondaryFieldImpressions: [String],
+        primaryTrauma: [String],
+        secondaryTrauma: [String],
+        mechanismOfInjury: [String],
+        medication: String,
+        allergies: [String],
+        bp: [
+            {
+                systolic: Number,
+                diastolic: Number,
+                time: Date,
+            }
+        ],
+        pulse: [
+            {
+                beatsPerMinute: Number,
+                time: Date,
+            }
+        ],
+        respiratory: [
+            {
+                breathsPerMinute:Number,
+                time: Date,
+                o2Saturation: Number,
+            }
+        ],
+        glasgowComaScale: {
+            eyesOpen: Number
+        }
+    }
 });
 
 var Patient = mongoose.model('Patient', patientSchema);

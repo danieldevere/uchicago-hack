@@ -13,6 +13,8 @@ import { EmsComponent } from './ems/ems.component';
 import { RouterModule, Router } from '@angular/router';
 import { DoctorComponent } from './doctor/doctor.component';
 import { WitnessComponent } from './witness/witness.component';
+import { PatientService } from './patient.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,13 @@ import { WitnessComponent } from './witness/witness.component';
     BrowserModule,
     SharedModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     // MatButtonModule,
     // MatOptionModule,
     // MatFormFieldModule,
     RouterModule.forRoot(AppRoutes)
   ],
-  providers: [],
+  providers: [PatientService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
