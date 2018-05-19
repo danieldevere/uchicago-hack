@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { PatientService } from '../patient.service';
+import { Patient } from '../model/patient';
 
 @Component({
   selector: 'app-ems',
@@ -10,9 +12,9 @@ export class EmsComponent implements OnInit {
 
   public emsForm: FormGroup;
   displayedColumns = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
+  private dataSource: any;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private patientService: PatientService) {
     this.emsForm = new FormGroup({
       tech1Name: new FormControl(null, [Validators.required]),
       tech2Name: new FormControl(null),
@@ -24,6 +26,9 @@ export class EmsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.patientService.getAllPatients().subscribe((patients) => {
+      this.dataSource = patients[0].witness;
+    });
     
   }
 
