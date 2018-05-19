@@ -1,13 +1,44 @@
 <mat-card>
-  <mat-card-title>EMS Questions</mat-card-title>
+  <mat-card-title>Trauma Witness</mat-card-title>
   <mat-card-content>
       <form [formGroup]="witnessForm">
           <mat-form-field>
               <input matInput placeholder="First Name" formControlName="firstname" required>
           </mat-form-field>
           <mat-form-field>
-            <input matInput formControlName="lastname">
+            <input matInput placeholder="Last Name" formControlName="lastname">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Age" formControlName="age">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Gender" formControlName="sex">
+              <mat-option value="Male">Male</mat-option>
+              <mat-option value="Female">Female</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Address" formControlName="location">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select  placeholder="Minutes Ago" formControlName="minutesAgo">
+              <mat-option *ngFor='let minute of minutes' value='minute'>{{minute}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field>
+            <textarea matInput placeholder="Description" formControlName="description"></textarea>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-select placeholder="Type of Emergency" formControlName="typeOfEmergency">
+              <mat-option *ngFor='let type of emergencyTypes' value='type'>{{type}}</mat-option>
+              <mat-option value='other'>Other</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field *ngIf="witnessForm.controls.typeOfEmergency == other">
+            <textarea matInput placeholder="Other Type of Emergency" formControlName="other"></textarea>
           </mat-form-field>
       </form>
   </mat-card-content>
+  <button mat-button (click)='start()'>Take Photo</button>
+  <video #videoElement></video>
 </mat-card>

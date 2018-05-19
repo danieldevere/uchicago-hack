@@ -26,8 +26,12 @@ export class PatientService {
     return of(this.PATIENTS);
   }
 
-  updatePatient(id: string, patient: Patient): Patient {
-    return patient;
+  updatePatient(id: string, patient: Patient): Observable<Patient> {
+    return of(patient);
+  }
+
+  createPatient(patient: Patient): Observable<string> {
+    return of('temp id');
   }
 
   constructor(
