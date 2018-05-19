@@ -30,6 +30,10 @@ export class PatientService {
     return patient;
   }
 
+  createPatient(patient: Patient): Observable<string> {
+    return of('temp id');
+  }
+
   constructor(
     private httpClient: HttpClient
   ) { }
