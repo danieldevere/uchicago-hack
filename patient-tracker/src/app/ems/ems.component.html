@@ -1,32 +1,78 @@
-<mat-card>
-    <mat-card-title>EMS Questions</mat-card-title>
-    <mat-card-content>
-        <form [formGroup]="emsForm">
-            <mat-form-field>
-                <input matInput placeholder="Tech Name" formControlName="tech1Name" required>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Tech Name 2" formControlName="tech2Name">
-            </mat-form-field>
-            <!-- <mat-form-field>
-                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field> -->
-            <mat-form-field>
-                <input matInput placeholder="Chief Complaint" formControlName="chiefComplaint" required>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Medications" formControlName="medications" required>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Past History" formControlName="pastHistory" required>
-            </mat-form-field>
-            <mat-form-field>
-                <input matInput placeholder="Known Allergies" formControlName="allergies" required>
-            </mat-form-field>
-        </form>
-        <button mat-button (click)="submit()">Submit Patient Info</button>
-    </mat-card-content>
-
-</mat-card>
+<mat-tab-group>
+    <mat-tab label="Tab 1">
+        <mat-card>
+            <mat-card-title>EMS Questions</mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="emsForm">
+                    <mat-form-field>
+                        <input matInput placeholder="Tech Name" formControlName="tech1Name" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Tech Name 2" formControlName="tech2Name">
+                    </mat-form-field>
+                    <!-- <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field> -->
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Chief Complaint" formControlName="chiefComplaint" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Medications" formControlName="medications" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Past History" formControlName="pastHistory" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Known Allergies" formControlName="allergies" required>
+                    </mat-form-field>
+                </form>
+                <button mat-button (click)="submit()">Submit Patient Info</button>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="Tab 2">
+        <mat-card>
+            <mat-card-title>Witness Data</mat-card-title>
+            <mat-card-content>
+                <table mat-table #table [dataSource]="dataSource">
+                    <!--- Note that these columns can be defined in any order.
+                            The actual rendered columns are set as a property on the row definition" -->
+                
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="position">
+                        <th mat-header-cell *matHeaderCellDef> No. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+                    </ng-container>
+                
+                    <!-- Name Column -->
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+                
+                    <!-- Weight Column -->
+                    <ng-container matColumnDef="weight">
+                        <th mat-header-cell *matHeaderCellDef> Weight </th>
+                        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+                    </ng-container>
+                
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="symbol">
+                        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+                        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+                    </ng-container>
+                
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </table>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+</mat-tab-group>
