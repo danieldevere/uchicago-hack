@@ -12,9 +12,11 @@ export class PatientService {
 
   private PATIENTS: Patient[] = [
     {
-      firstname: 'John',
-      lastname: 'Doe',
-      age: 25
+      witness: {
+        firstname: 'John',
+        lastname: 'Doe',
+        age: 25
+      }
     }
   ]
 
