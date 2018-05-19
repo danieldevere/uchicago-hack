@@ -1,14 +1,32 @@
-<button mat-button>Button</button>
 <mat-card>
     <mat-card-title>EMS Questions</mat-card-title>
     <mat-card-content>
-        <form [formGroup]="witnessForm">
+        <form [formGroup]="emsForm">
             <mat-form-field>
-                <input matInput placeholder="First Name" formControlName="firstname" required>
+                <input matInput placeholder="Tech Name" formControlName="tech1Name" required>
             </mat-form-field>
             <mat-form-field>
-                <input matInput formControlName="lastname">
+                <input matInput placeholder="Tech Name 2" formControlName="tech2Name">
+            </mat-form-field>
+            <!-- <mat-form-field>
+                <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field> -->
+            <mat-form-field>
+                <input matInput placeholder="Chief Complaint" formControlName="chiefComplaint" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Medications" formControlName="medications" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Past History" formControlName="pastHistory" required>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="Known Allergies" formControlName="allergies" required>
             </mat-form-field>
         </form>
+        <button mat-button (click)="submit()">Submit Patient Info</button>
     </mat-card-content>
+
 </mat-card>

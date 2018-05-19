@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ems',
@@ -8,13 +8,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EmsComponent implements OnInit {
 
-  private emsForm: FormGroup;
+  public emsForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-
+    this.emsForm = new FormGroup({
+      tech1Name: new FormControl(null, [Validators.required]),
+      tech2Name: new FormControl(null),
+      chiefComplaint: new FormControl(null, [Validators.required]),
+      medications: new FormControl(null, [Validators.required]),
+      pastHistory: new FormControl(null, [Validators.required]),
+      allergies: new FormControl(null, [Validators.required])
+    });
   }
 
   ngOnInit() {
+  }
+
+  submit() {
+    debugger;
   }
 
 }

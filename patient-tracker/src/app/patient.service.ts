@@ -18,7 +18,7 @@ export class PatientService {
         age: 25
       }
     }
-  ]
+  ];
 
   private patientUrl = '';
 
