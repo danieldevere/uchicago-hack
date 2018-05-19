@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
     MatButtonModule,
     MatCardModule,
@@ -54,7 +55,7 @@ const MATERIALCOMPONENTS = [
 ];
 
 @NgModule({
-    imports: [MATERIALCOMPONENTS],
-    exports: [MATERIALCOMPONENTS]
+    imports: [MATERIALCOMPONENTS, FormsModule, ReactiveFormsModule],
+    exports: [MATERIALCOMPONENTS, FormsModule, ReactiveFormsModule]
 })
 export class SharedModule { }
