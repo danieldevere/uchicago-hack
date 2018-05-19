@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-ems',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmsComponent implements OnInit {
 
-  constructor() { }
+  private emsForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+
+  }
 
   ngOnInit() {
   }
