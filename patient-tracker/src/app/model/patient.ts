@@ -1,4 +1,4 @@
-export interface Patient {
+export class Patient {
     id?: string;
     witness?: {
         firstname?: string;
@@ -64,7 +64,7 @@ export interface Patient {
             }
         ];
         glasgowComaScale?: {
-            eyesOpen: 
+            eyesOpen: number
         }
     }
     
