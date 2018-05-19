@@ -34,10 +34,6 @@ export class PatientService {
     return this.httpClient.post<string>(this.patientUrl + '/patient', patient);
   }
 
-  createPatient(patient: Patient): Observable<string> {
-    return of('temp id');
-  }
-
   constructor(
     private httpClient: HttpClient
   ) { }
