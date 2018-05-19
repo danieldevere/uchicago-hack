@@ -1,3 +1,6 @@
 #canvas {
     display: none;
 }
+mat-card {
+    background-color: lightblue
+}
