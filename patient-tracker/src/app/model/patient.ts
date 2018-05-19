@@ -1,4 +1,4 @@
-export interface Patient {
+export class Patient {
     id?: string;
     witness?: {
         firstname?: string;
